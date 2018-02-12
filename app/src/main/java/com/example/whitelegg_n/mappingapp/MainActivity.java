@@ -1,5 +1,6 @@
 package com.example.whitelegg_n.mappingapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -35,6 +37,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    <--!
+    public void onStart(){
+        super.onStart();
+        new AlertDialog.Builder(this).
+                setPositiveButton("ok", null).setMessage("onStart() called").show();
+    }
+-->
+    public void onStop(){
+        super.onStop();
+        Toast.makeText(this, "onstop() call", Toast.LENGTH_LONG).show();
+    }
+
+
+    public void onDestroy(){
+        super.onDestroy();
+        Toast.makeText(this, "oneDstroy() call", Toast.LENGTH_LONG).show();
+    }
+
     public boolean onCreateOptionsMenu (Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
@@ -51,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
 
             return true;
+        }
+        else if (item.getItemId() == R.id.pref){
+
+            Intent intent = new Intent(this, PrefAct.class);
+            startActivityForResult(intent, 2);
         }
         return false;
     }

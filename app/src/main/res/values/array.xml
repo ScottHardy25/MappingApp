@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pizzaflav">
+        <item> Cheesey</item>
+        <item> Pineappley</item>
+        <item> hot n\' spicey</item>
+        <item> Seafood</item>
+    </string-array>
+    <string-array name="pizzaflavcode">
+        <item>CH</item>
+        <item>PA</item>
+        <item>HS</item>
+        <item>SF</item>
+    </string-array>
+</resources>
