@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    <--!
+   /*
     public void onStart(){
         super.onStart();
         new AlertDialog.Builder(this).
                 setPositiveButton("ok", null).setMessage("onStart() called").show();
     }
--->
+*/
     public void onStop(){
         super.onStop();
         Toast.makeText(this, "onstop() call", Toast.LENGTH_LONG).show();
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle = returnIntent.getExtras();
                 boolean hikebike = bundle.getBoolean("com.example.whitelegg_n.mappingapp.hikebike");
                 Log.d("mapping", "hikebike=" + hikebike);
-                if (hikebike == true){
+                if (hikebike){
                     mv.setTileSource(TileSourceFactory.HIKEBIKEMAP);
                 }
                 else
