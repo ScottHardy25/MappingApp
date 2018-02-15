@@ -30,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
         mv = (MapView)findViewById(R.id.map1);
 
-        mv.setBuiltInZoomControls(true);
+        if(mv!=null) {
+            mv.setBuiltInZoomControls(true);
 
-        mv.getController().setZoom(16);
-        mv.getController().setCenter (new GeoPoint(51.05, -0.72));
-
+            mv.getController().setZoom(16);
+            mv.getController().setCenter(new GeoPoint(51.05, -0.72));
+        }
     }
 
    /*
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this).
                 setPositiveButton("ok", null).setMessage("onStart() called").show();
     }
-*/
+
     public void onStop(){
         super.onStop();
         Toast.makeText(this, "onstop() call", Toast.LENGTH_LONG).show();
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Toast.makeText(this, "oneDstroy() call", Toast.LENGTH_LONG).show();
     }
-
+*/
     public boolean onCreateOptionsMenu (Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
@@ -76,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, PrefAct.class);
             startActivityForResult(intent, 2);
+        }
+        else if (item.getItemId() == R.id.loc){
+
+            Intent intent = new Intent(this, SetLocation.class);
+            startActivityForResult(intent,1);
         }
         return false;
     }

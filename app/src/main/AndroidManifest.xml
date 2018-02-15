@@ -26,6 +26,6 @@
 
         </activity>
         <activity android:name=".PrefAct" android:label="@string/pref"></activity>
+        <activity android:name=".SetLocation" android:label="@string/setLoc"></activity>
     </application>
-
 </manifest>
