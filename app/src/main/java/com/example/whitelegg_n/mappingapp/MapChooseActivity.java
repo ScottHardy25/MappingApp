@@ -36,11 +36,19 @@ implements View.OnClickListener {
             }
 
             Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("com.example.whitelegg_n.mappingapp.hikebike", hikebike);
+            Bundle bundle1 = new Bundle();
+            // inside bundle1
+            // taking the boolean from hikebike and putting it into bundle1
+            //---"com.example.whitelegg_n.mappingapp -- this is the app
+            // -- .hikebike" -- this is the unique key
+            bundle1.putBoolean("com.example.whitelegg_n.mappingapp.hikebike", hikebike);
+            //debugging log data
             Log.d("mapping", "in secondary activity: hikebike=" + hikebike);
-            intent.putExtras(bundle);
+            // put bundle1 inside the intent
+            intent.putExtras(bundle1);
+            //indiacte where or not to process information
             setResult(RESULT_OK, intent);
+            //  ends the current activity
             finish();
         }
 

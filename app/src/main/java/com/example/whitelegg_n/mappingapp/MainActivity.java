@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult (int requestCode, int resultCode, Intent returnIntent){
         if (resultCode == RESULT_OK){
+            //set in onOptionsItemSelected
             if (requestCode == 0){
 
                 Bundle bundle = returnIntent.getExtras();
@@ -100,6 +101,22 @@ public class MainActivity extends AppCompatActivity {
                 {
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
+            }
+            else if(requestCode == 1){
+                //take returned intent and get the bundle out
+                Bundle bundle = returnIntent.getExtras();
+                /*   makes a new var called lon, then opens the bundle and takes these:
+                --
+                bundle.putDouble("com.example.whitelegg_n.mappingapp.sblon",sendbacklon);
+                bundle.putDouble("com.example.whitelegg_n.mappingapp.sblat",sendbacklat);
+                --
+                out of the bundle and then uses getDouble to get the data, using the keys
+                it then repeats it again for lat
+                */
+
+                double lon = bundle.getDouble("com.example.whitelegg_n.mappingapp.sblon");
+                double lat = bundle.getDouble("com.example.whitelegg_n.mappingapp.sblat");
+                mv.getController().setCenter(new GeoPoint(lat,lon));
             }
         }
     }
